@@ -2,17 +2,17 @@
 // Сделайте 3 промиса, в каждом из которых расположена функция setTimeout со случайной задержкой от 1 до 5 секунд.
 // Пусть первый промис возвращает число 1, второе - число 2, третий - число 3.
 // С помощью Promise.race дождитесь загрузки первого сработавшего промиса и выведите результат его работы на экран.
-function IntegerRandomNumber(min, max) {
+function integerRandomNumber(min, max) {
     return Math.floor(Math.random() * (max -  min + 1) + min)
 }
 function getNum(t, min, max){
     return new Promise((res, rej) => {
-        setTimeout(() => res(IntegerRandomNumber(min, max)),t * 1000)
+        setTimeout(() => res(integerRandomNumber(min, max)),t * 1000)
     });
 }
-let pr1 = getNum(IntegerRandomNumber(1, 5), 1, 1);
-let pr2 = getNum(IntegerRandomNumber(1, 5), 2, 2);
-let pr3 = getNum(IntegerRandomNumber(1, 5), 3, 3);
+let pr1 = getNum(integerRandomNumber(1, 5), 1, 1);
+let pr2 = getNum(integerRandomNumber(1, 5), 2, 2);
+let pr3 = getNum(integerRandomNumber(1, 5), 3, 3);
 
 Promise.race([pr1, pr2, pr3]).then((dat) => {
     console.log(dat);
