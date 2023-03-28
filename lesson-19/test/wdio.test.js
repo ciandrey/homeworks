@@ -20,7 +20,7 @@ describe('webdriverIO page', () => {
     await expect(versionsPage.versionsMainWrapper).toHaveTextContaining('WebdriverIO documentation versions');
   });
 
-  it('should click search button, than enter the word "waitForDisplayed" and click first link ', async () => {
+  it('should click search button, than enter the word "browser" and click first link ', async () => {
     await baseUtils.toDoClick(searchElement.searchButton);
     await searchElement.getSearch('browser', 0)
     await expect(browser).toHaveUrlContaining('browser');
