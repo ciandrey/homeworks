@@ -1,14 +1,15 @@
-const {Page} = require('./page');
+const { Page } = require('./page');
 
 class Personal extends Page {
-    constructor() {
-        super();
-        this.purchases = '.uc-purchase';
-        this.personalAccount = '.uc-nav.uc-nav-last [href="/personal/account.phtml"]+sup';
-        this.cashback = '.uc-allprops';
-        this.cart = '.uc-nav [href="/checkout/"]';
-        this.favoritesCount = '.menu-fav__count'
-    };
+  constructor() {
+    super();
+    this.purchases = '.uc-purchase';
+    this.personalAccount = '.uc-nav.uc-nav-last [href="/personal/account.phtml"]+sup';
+    this.cashback = '.uc-allprops';
+    this.cart = '.uc-nav [href="/checkout/"]';
+    this.favoritesTab = '#user-tab-wishlist';
+    this.favoritesWrapper = '.search-info-results__content'
+  }
 }
 
-module.exports =  { Personal };
+module.exports = { Personal };

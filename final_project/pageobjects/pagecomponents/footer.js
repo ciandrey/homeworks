@@ -1,33 +1,38 @@
-const {Page} = require('../page');
+const { Page } = require('../page');
+const { BaseElement } = require('../../helpers/baseelement');
+
+const I = new BaseElement();
 
 class Footer extends Page {
-    constructor() {
-        super();
-        this.socialLinks = '.footer-full__social-link';      
-    };
+  constructor() {
+    super();
+    this.socialLinks = '.footer-full__social-link';
+  }
 
-    async goToSocialLinks(link) {
-               if (link === 'vk') {
-            await $$(this.socialLinks)[0].click();
-        } else if (link === 'instagram') {
-            await $$(this.socialLinks)[1].click();
-        } else if (link === 'facebook') {
-            await $$(this.socialLinks)[2].click();
-        } else if (link === 't.me') {
-            await $$(this.socialLinks)[3].click();
-        } else if (link === 'tiktok') {
-            await $$(this.socialLinks)[4].click();
-        } else if (link === 'youtube') {
-            await $$(this.socialLinks)[5].click();
-        }
-        await browser.waitUntil(
-            async () => (await browser.getTitle()),
-            {
-                timeout: 5000 
-            }
-        );
-        await browser.switchWindow(link)
-    };   
+  async goToSocialLinks(link) {
+    const socialElementsArray = await I.getElementsArray(this.socialLinks);
+
+    if (link === 'vk') {
+      await I.clickElementFromArray(socialElementsArray, 0);
+    } else if (link === 'instagram') {
+      await I.clickElementFromArray(socialElementsArray, 1);
+    } else if (link === 'facebook') {
+      await I.clickElementFromArray(socialElementsArray, 2);
+    } else if (link === 't.me') {
+      await I.clickElementFromArray(socialElementsArray, 3);
+    } else if (link === 'tiktok') {
+      await I.clickElementFromArray(socialElementsArray, 4);
+    } else if (link === 'youtube') {
+      await I.clickElementFromArray(socialElementsArray, 5);
+    }
+    await browser.waitUntil(
+      async () => (await browser.getTitle()),
+      {
+        timeout: 5000,
+      },
+    );
+    await browser.switchWindow(link);
+  }
 }
 
 module.exports = { Footer };

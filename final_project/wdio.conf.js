@@ -1,7 +1,7 @@
 exports.config = {
 
     specs: [
-        './test/**/*.js'
+        './test/*.js'
     ],
     maxInstances: 10,
     capabilities: [{

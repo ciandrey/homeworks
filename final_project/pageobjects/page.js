@@ -1,11 +1,10 @@
-
 class Page {
-    constructor(){ 
-    };
+  constructor() {
+  }
 
-    async open (url) {
-        return browser.url(url);
-    };
+  async open(url) {
+    return browser.url(url);
+  }
 }
 
 module.exports = { Page };
