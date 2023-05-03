@@ -1,0 +1,4 @@
+allure-results
+allure-report
+package-lock.json
+node_modules
